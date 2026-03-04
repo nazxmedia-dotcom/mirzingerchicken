@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="Mir Zinger Chicken">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d60000"/>
+      <stop offset="0.62" stop-color="#ff2a2a"/>
+      <stop offset="1" stop-color="#ffcc00"/>
+    </linearGradient>
+    <filter id="s" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect x="7" y="7" width="82" height="82" rx="22" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)"/>
+  <path filter="url(#s)" d="M53 18c-2 7-10 10-13 18-3 9 2 17 11 19-2-3-2-7 2-10 6-5 10-9 10-16 0-4-2-8-10-11z" fill="url(#g)"/>
+  <path d="M45 31c-2 4-8 7-10 12-3 7 1 13 8 14-1-2-1-5 2-7 4-3 6-6 6-10 0-3-2-6-6-9z" fill="#ffcc00" opacity=".85"/>
+  <text x="48" y="74" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-weight="900" font-size="20" fill="white">MZ</text>
+</svg>

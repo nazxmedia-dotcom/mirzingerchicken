@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order | Mir Zinger Chicken — Guelph</title>
+    <meta name="description" content="Order Mir Zinger Chicken for pickup in Guelph. Order online or call 519-265-8955. Fresh, hot, made to order." />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="container header__inner">
+        <a class="brand" href="index.html" aria-label="Mir Zinger Chicken home">
+          <img class="brand__logo" src="assets/logo.png" alt="Mir Zinger Chicken" width="170" height="44" loading="eager" />
+          <div class="brand__text">
+            <span class="brand__name">Mir Zinger Chicken</span>
+            <span class="brand__tag">Guelph, Ontario</span>
+          </div>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+            <span class="nav__toggleLines" aria-hidden="true"></span>
+            <span class="sr-only">Menu</span>
+          </button>
+          <div class="nav__menu" id="navMenu">
+            <a class="nav__link" href="index.html">Home</a>
+            <a class="nav__link" href="menu.html">Menu</a>
+            <a class="nav__link nav__link--current" href="order.html">Order</a>
+            <a class="nav__link" href="contact.html">Contact</a>
+            <a class="btn btn--sm btn--primary" href="order.html">Order Now</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section section--alt page-top">
+        <div class="container">
+          <div class="section__heading">
+            <h1>Order for pickup</h1>
+            <p>Skip the wait. Order online or call us — we’ll have it hot and ready when you get here.</p>
+          </div>
+
+          <div class="order-grid">
+            <div class="order-card">
+              <h2>Order online</h2>
+              <p>Place your order for pickup. We’ll get it started fresh and have it ready at the time you choose.</p>
+              <a class="btn btn--primary btn--block" href="#" data-order-link>Order Now</a>
+              <p class="muted">Add your ordering link in <code>script.js</code> (ORDERING_URL) to enable this button.</p>
+            </div>
+            <div class="order-card order-card--dark">
+              <h2>Call to order</h2>
+              <p>Prefer the phone? Call and we’ll take your order and have it ready for pickup.</p>
+              <a class="btn btn--dark btn--block" href="tel:15192658955">Call 519-265-8955</a>
+              <div class="order-badges">
+                <span class="badge">Fast service</span>
+                <span class="badge">Fresh & hot</span>
+                <span class="badge">Made to order</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="newsletter">
+            <div class="newsletter__left">
+              <h2>Get deals & new items</h2>
+              <p>Join our newsletter for promos, family-meal specials, and limited-time flavours.</p>
+            </div>
+            <form class="newsletter__form" action="#" method="post" data-newsletter>
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+              <button class="btn btn--primary" type="submit">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <img class="brand__logo" src="assets/logo.png" alt="Mir Zinger Chicken" width="170" height="44" loading="lazy" />
+          <div>
+            <p class="footer__name">Mir Zinger Chicken</p>
+            <p class="footer__meta">500 Willow Road Unit 18, Guelph, ON • <a href="tel:15192658955">519-265-8955</a></p>
+          </div>
+        </div>
+        <div class="footer__links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="order.html">Order</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <p class="footer__fine">© <span data-year></span> Mir Zinger Chicken. Guelph’s home of crispy zinger chicken & Indian flavours.</p>
+      </div>
+    </footer>
+
+    <a class="float-order" href="order.html" aria-label="Order Now"><span class="float-order__flame" aria-hidden="true">🔥</span> Order Now</a>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
