@@ -1,12 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Mir Zinger Chicken">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#d60000"/>
-      <stop offset="0.7" stop-color="#ff2a2a"/>
-      <stop offset="1" stop-color="#ffcc00"/>
-    </linearGradient>
-  </defs>
-  <rect x="5" y="5" width="54" height="54" rx="16" fill="#0b0b0f" stroke="rgba(255,255,255,.18)"/>
-  <path d="M35 11c-2 6-8 8-10 15-2 7 2 13 9 15-2-3-2-6 2-8 5-4 8-7 8-12 0-4-2-7-9-10z" fill="url(#g)"/>
-  <text x="32" y="49" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-weight="900" font-size="14" fill="#fff">MZ</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="Mir Zinger Chicken">
+  <image href="favicon-96.png" x="0" y="0" width="96" height="96"/>
 </svg>
