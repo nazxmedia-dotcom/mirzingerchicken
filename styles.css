@@ -975,6 +975,28 @@ button,input{font:inherit}
   font-size:13px;
 }
 .footer__fine{margin:0; color:rgba(20,20,28,.58); font-weight:700}
+.footer__credit{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid rgba(20,20,28,.08);
+}
+.footer__credit-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:rgba(20,20,28,.5);
+  font-weight:700;
+  font-size:13px;
+  transition:color .15s ease;
+}
+.footer__credit-link:hover{color:rgba(20,20,28,.75)}
+.footer__credit-logo{
+  height:24px;
+  width:auto;
+  object-fit:contain;
+  opacity:.85;
+}
+.footer__credit-link:hover .footer__credit-logo{opacity:1}
 
 .float-order{
   position:fixed;
