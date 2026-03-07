@@ -1,4 +1,4 @@
-const ORDERING_URL = ""; // TODO: paste your online ordering URL here
+const ORDERING_URL = "https://www.ubereats.com/ca/store/mir-zinger-chicken-inc/rxzvofAXQeaS_mno1QXcrA";
 
 function setYear() {
   const el = document.querySelector("[data-year]");

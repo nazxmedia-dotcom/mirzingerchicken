@@ -20,8 +20,10 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{overflow-x:hidden}
+html{scroll-padding-top:80px}
 body{
   margin:0;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   background:
     radial-gradient(1000px 500px at 15% -10%, rgba(255,204,0,.18), transparent 60%),
     radial-gradient(900px 520px at 95% 0%, rgba(214,0,0,.12), transparent 62%),
@@ -36,6 +38,9 @@ a{color:inherit; text-decoration:none}
 button,input{font:inherit}
 
 .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+@media (max-width: 480px){
+  .container{padding:0 16px}
+}
 .sr-only{
   position:absolute;
   width:1px;height:1px;
@@ -298,8 +303,10 @@ button,input{font:inherit}
   text-decoration:none;
 }
 .category-block img{
+  display:block;
   width:100%;
   height:100%;
+  min-height:200px;
   object-fit:cover;
   transition:transform .4s ease;
 }
@@ -341,10 +348,13 @@ button,input{font:inherit}
 .favourite-card__img{
   aspect-ratio:1;
   overflow:hidden;
+  background:rgba(20,20,28,.06);
 }
 .favourite-card__img img{
+  display:block;
   width:100%;
   height:100%;
+  min-height:180px;
   object-fit:cover;
   transition:transform .3s ease;
 }
@@ -416,24 +426,45 @@ button,input{font:inherit}
 
 .quote--bold .quote__text{font-size:16px; font-weight:800}
 
-.gallery-grid--fullbleed{
-  width:100vw;
-  max-width:100vw;
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
-  padding:0;
+.gallery-crave{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:0;
+  width:100%;
+  margin-top:24px;
 }
-.gallery-grid--fullbleed .shot{
-  border-radius:0;
-  border:0;
+.gallery-crave__item{
+  margin:0;
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4/3;
 }
-.gallery-grid--fullbleed .shot img{aspect-ratio:4/3}
-.gallery-grid--fullbleed .shot:nth-child(n){grid-column:span 1}
+.gallery-crave__item img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.gallery-crave__item:hover img{transform:scale(1.05)}
+.gallery-crave__item figcaption{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:12px;
+  padding:12px 14px;
+  background:rgba(0,0,0,.75);
+  color:var(--white);
+  font-weight:800;
+  font-size:14px;
+  border-radius:10px;
+  backdrop-filter:blur(6px);
+}
+@media (max-width: 980px) and (min-width: 769px){
+  .gallery-crave{grid-template-columns:repeat(2, 1fr)}
+}
 @media (max-width: 768px){
-  .gallery-grid--fullbleed{grid-template-columns:1fr}
+  .gallery-crave{grid-template-columns:1fr; gap:2px}
 }
 
 .sticky-bar{
@@ -442,6 +473,7 @@ button,input{font:inherit}
   bottom:0;
   left:0;
   right:0;
+  padding-bottom:env(safe-area-inset-bottom);
   z-index:55;
   background:var(--black);
   padding:12px 16px;
@@ -917,6 +949,9 @@ button,input{font:inherit}
   box-shadow:var(--shadow);
 }
 .map-card iframe{width:100%; height:100%; min-height:420px; border:0; filter:saturate(1.05) contrast(1.05)}
+@media (max-width: 768px){
+  .map-card iframe{min-height:300px}
+}
 
 .site-footer{
   border-top:1px solid var(--line);
@@ -940,7 +975,8 @@ button,input{font:inherit}
 
 .float-order{
   position:fixed;
-  right:16px; bottom:16px;
+  right:max(16px, env(safe-area-inset-right));
+  bottom:max(16px, env(safe-area-inset-bottom));
   z-index:60;
   background:linear-gradient(135deg, var(--red), var(--red2));
   color:var(--white);
@@ -976,6 +1012,7 @@ button,input{font:inherit}
   .menu-grid{grid-template-columns:1fr}
   .order-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
+  .contact-list li{grid-template-columns:1fr; gap:4px}
   .newsletter{flex-direction:column; align-items:stretch}
   .newsletter__form{flex-direction:column; align-items:stretch}
   .newsletter__form input{width:100%}
@@ -999,9 +1036,21 @@ button,input{font:inherit}
   .nav__menu[data-open="true"]{display:flex}
   .nav__link{padding:12px 12px}
 }
+@media (max-width: 640px){
+  .order-grid{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr}
+  .cta-grid{grid-template-columns:1fr}
+  .category-block__overlay{padding:16px}
+}
 @media (max-width: 560px){
   .favourites-grid{grid-template-columns:1fr}
   .sticky-bar{flex-direction:column}
+  .hero__cta--stacked .btn{min-height:48px}
+  .hero-bar__text{font-size:12px}
+}
+@media (max-width: 400px){
+  .brand__logo{width:140px; height:36px}
+  .section{padding:44px 0}
 }
 
 /* Reduced motion */
