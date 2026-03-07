@@ -61,7 +61,7 @@ button,input{font:inherit}
 .skip-link:focus{left:12px}
 
 .promo-banner{
-  background:linear-gradient(90deg, rgba(214,0,0,.96), rgba(255,204,0,.94));
+  background:var(--yellow);
   color:var(--black);
   border-bottom:1px solid rgba(0,0,0,.16);
 }
