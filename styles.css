@@ -621,7 +621,8 @@ button,input{font:inherit}
 }
 .callout h3{margin:6px 0 8px; font-family:"Space Grotesk", Inter, system-ui, sans-serif}
 .callout p{margin:0; color:rgba(20,20,28,.70); font-weight:600}
-.callout__right{flex:0 0 auto}
+.callout__left{min-width:0}
+.callout__right{flex:0 0 auto; min-width:0}
 
 .heat-legend{
   margin:20px 0 24px;
@@ -1018,6 +1019,10 @@ button,input{font:inherit}
   .newsletter{flex-direction:column; align-items:stretch}
   .newsletter__form{flex-direction:column; align-items:stretch}
   .newsletter__form input{width:100%}
+  .callout{flex-direction:column; align-items:stretch; gap:12px; padding:16px}
+  .callout__right{flex:1 1 auto; width:100%}
+  .callout .stack--row{flex-direction:column; width:100%}
+  .callout .stack--row .btn{width:100%; justify-content:center}
   .shot:nth-child(1), .shot:nth-child(2), .shot:nth-child(3), .shot:nth-child(4), .shot:nth-child(5), .shot:nth-child(6){grid-column:span 12}
   .nav__toggle{display:inline-flex; align-items:center; justify-content:center}
   .nav__menu{
