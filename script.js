@@ -1,4 +1,6 @@
 const ORDERING_URL = "https://www.ubereats.com/ca/store/mir-zinger-chicken-inc/rxzvofAXQeaS_mno1QXcrA";
+const HALAL_INFO_URL = "halal.html";
+const IN_STORE_PROMO_KEY = "mzc_instore_offer_closed_v1";
 
 function setYear() {
   const el = document.querySelector("[data-year]");
@@ -6,6 +8,7 @@ function setYear() {
 }
 
 function setupMobileNav() {
+  const header = document.querySelector("[data-header]");
   const toggle = document.querySelector(".nav__toggle");
   const menu = document.querySelector(".nav__menu");
   if (!toggle || !menu) return;
@@ -13,6 +16,8 @@ function setupMobileNav() {
   const setOpen = (open) => {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     menu.dataset.open = open ? "true" : "false";
+    document.body.classList.toggle("nav-open", open);
+    if (header) header.dataset.navOpen = open ? "true" : "false";
   };
 
   toggle.addEventListener("click", () => {
@@ -32,21 +37,96 @@ function setupMobileNav() {
     if (!(target instanceof Element)) return;
     if (target.matches("a")) setOpen(false);
   });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 980) setOpen(false);
+  });
 }
 
-function setupPromoBanner() {
-  const banner = document.querySelector("[data-promo]");
-  if (!banner) return;
+function setupHeaderState() {
+  const header = document.querySelector("[data-header]");
+  if (!(header instanceof HTMLElement)) return;
 
-  const KEY = "mzc_promo_closed";
-  if (localStorage.getItem(KEY) === "1") return;
+  const sync = () => {
+    header.dataset.scrolled = window.scrollY > 10 ? "true" : "false";
+  };
 
-  banner.hidden = false;
-  const close = banner.querySelector(".promo-banner__close");
-  close?.addEventListener("click", () => {
-    localStorage.setItem(KEY, "1");
-    banner.hidden = true;
-  });
+  sync();
+  window.addEventListener("scroll", sync, { passive: true });
+}
+
+function setupInStorePromo() {
+  if (document.querySelector(".site-promo")) return;
+
+  let dismissed = false;
+  try {
+    dismissed = sessionStorage.getItem(IN_STORE_PROMO_KEY) === "1";
+  } catch (_) {
+    dismissed = false;
+  }
+  if (dismissed) return;
+
+  const promo = document.createElement("aside");
+  promo.className = "site-promo";
+  promo.setAttribute("aria-label", "In-store feature");
+  promo.setAttribute("data-state", "hidden");
+  promo.innerHTML =
+    '<div class="site-promo__top">' +
+    '<span class="site-promo__badge">In-Store Favourite</span>' +
+    '<button class="site-promo__close" type="button" aria-label="Dismiss in-store feature">✕</button>' +
+    "</div>" +
+    '<div class="site-promo__body">' +
+    '<h2 class="site-promo__title">Walk In Hungry. Leave With a Zinger.</h2>' +
+    '<p class="site-promo__copy">Visit Mir Zinger Chicken in Guelph for crispy halal chicken, bold flavour, and local favourites made fresh.</p>' +
+    "</div>" +
+    '<div class="site-promo__actions">' +
+    '<a class="site-promo__cta" href="contact.html">Visit In Store</a>' +
+    "</div>";
+
+  const close = promo.querySelector(".site-promo__close");
+  let armed = false;
+  let shown = false;
+
+  const dismissPromo = () => {
+    promo.setAttribute("data-state", "dismissed");
+    try {
+      sessionStorage.setItem(IN_STORE_PROMO_KEY, "1");
+    } catch (_) {
+      // Ignore storage failures and still dismiss visually.
+    }
+  };
+
+  const showPromo = () => {
+    if (shown || promo.getAttribute("data-state") === "dismissed") return;
+    shown = true;
+    requestAnimationFrame(() => {
+      promo.setAttribute("data-state", "visible");
+    });
+    window.removeEventListener("scroll", maybeReveal);
+  };
+
+  const maybeReveal = () => {
+    if (!armed || shown) return;
+    if (window.scrollY > 120) showPromo();
+  };
+
+  close?.addEventListener("click", dismissPromo);
+  document.body.appendChild(promo);
+
+  window.addEventListener("scroll", maybeReveal, { passive: true });
+
+  window.setTimeout(() => {
+    armed = true;
+    maybeReveal();
+  }, 900);
+
+  window.setTimeout(() => {
+    if (armed) showPromo();
+  }, 2600);
 }
 
 function setupOrderingLinks() {
@@ -104,10 +184,34 @@ function setupNewsletter() {
   });
 }
 
+function setupHalalButtons() {
+  const badges = document.querySelectorAll(".halal-sign:not(a)");
+  badges.forEach((badge) => {
+    if (!(badge instanceof HTMLElement)) return;
+    badge.textContent = "Certified Halal";
+    badge.tabIndex = 0;
+    badge.setAttribute("role", "link");
+    badge.setAttribute("aria-label", "Open Halal Info page");
+
+    const goToHalalPage = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = HALAL_INFO_URL;
+    };
+
+    badge.addEventListener("click", goToHalalPage);
+    badge.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") goToHalalPage(e);
+    });
+  });
+}
+
 setYear();
 setupMobileNav();
-setupPromoBanner();
+setupHeaderState();
+setupInStorePromo();
 setupOrderingLinks();
 setupActiveNav();
 setupNewsletter();
+setupHalalButtons();
 
