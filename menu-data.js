@@ -5,11 +5,11 @@
 window.MIR_ZINGER_MENU = {
   housePicks: [
     { name: "Zinger Burger", price: "$7.99", note: "Crispy chicken, signature sauce, brioche bun", sectionId: "zinger-sandwiches", badge: "Top pick", image: "https://slicecity.ca/wp-content/uploads/2025/08/Zinger-Burger-Spotlight_-Why-Its-More-Than-Just-a-Bite-scaled.png", alt: "Zinger Burger with crispy chicken" },
-    { name: "Zinger Burger Combo", price: "$11.99", note: "Burger, fries & pop", sectionId: "zinger-sandwiches", badge: "Combo", image: "assets/zinger-burger-combo.png", alt: "Burger combo with fries" },
+    { name: "Zinger Burger Combo", price: "$11.99", note: "Burger, fries & pop", sectionId: "zinger-sandwiches", badge: "Combo", image: "assets/zinger-burger-combo-hero.png", alt: "Burger combo with fries" },
     { name: "Chicken Biryani", price: "$11.99", note: "Aromatic basmati & spiced chicken", sectionId: "indian-cuisine", badge: "Fan fave", image: "https://media.istockphoto.com/id/2164869598/photo/kacchi-biryani-bronze-dish.jpg?s=612x612&w=0&k=20&c=lmFccYRb5rI6yXkhNAtMoVFnVk0g7i7e4lu_VSH7aIw=", alt: "Chicken biryani in a serving dish" },
     { name: "Butter Chicken", price: "$11.99", note: "Creamy tomato sauce · rice or naan", sectionId: "indian-cuisine", badge: "Best seller", image: "https://media.istockphoto.com/id/1411524598/photo/chicken-tikka-masala-cooked-marinated-chicken-in-spiced-curry-sauce.jpg?s=612x612&w=0&k=20&c=3JLbYigOnTQm-4exK-7uKeI3YoR0g9HxAkjxmuVmfpY=", alt: "Butter chicken in rich sauce" },
-    { name: "Popcorn Chicken", price: "$6.99", note: "Bite-sized crunch", sectionId: "popcorn", badge: "Snack", image: "https://images.pexels.com/photos/7172851/pexels-photo-7172851.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop", alt: "Crispy popcorn chicken pieces" },
-    { name: "Original Poutine", price: "$6.99", note: "Curds & gravy", sectionId: "poutines", badge: "Canadian classic", image: "https://www.shutterstock.com/image-photo/agust-25-2025-cilacap-menu-260nw-2670139169.jpg", alt: "Original poutine with fries and gravy" },
+    { name: "Popcorn Chicken", price: "$6.99", note: "Bite-sized crunch", sectionId: "popcorn", badge: "Snack", image: "assets/popcorn-chicken.png", alt: "Crispy popcorn chicken pieces" },
+    { name: "Original Poutine", price: "$6.99", note: "Curds & gravy", sectionId: "poutines", badge: "Canadian classic", image: "assets/original-poutine.png", alt: "Original poutine with fries and gravy" },
   ],
   navGroups: [
     { label: "Chicken & combos", ids: ["family-deals", "meal-deals", "two-can-dine", "family-combos", "tenders", "chicken-wings", "nuggets", "popcorn"] },

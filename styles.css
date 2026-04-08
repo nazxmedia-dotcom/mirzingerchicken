@@ -1751,6 +1751,16 @@ body.page-menu #main{position:relative; z-index:1}
   height:148px;
   object-fit:cover;
 }
+.mz-hitCard__img--popcorn{
+  object-fit:contain;
+  object-position:center center;
+  background:#efe2d2;
+}
+.mz-hitCard__img--poutine{
+  object-fit:contain;
+  object-position:center center;
+  background:#261a12;
+}
 .mz-hitCard .halal-sign{
   margin-bottom:2px;
 }
@@ -2293,9 +2303,21 @@ body.page-home .promo-banner__close{
   color:var(--ink);
 }
 .brand-hero__panel{
+  position:relative;
   display:flex;
   flex-direction:column;
   gap:14px;
+}
+.brand-hero__halalLogo{
+  position:absolute;
+  top:16px;
+  left:16px;
+  width:clamp(58px, 9vw, 86px);
+  height:auto;
+  z-index:2;
+  opacity:.88;
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,.14));
+  pointer-events:none;
 }
 .brand-hero__panel .brand-kicker--gold{
   color:#a65a00;
@@ -2410,6 +2432,16 @@ body.page-home .promo-banner__close{
   width:100%;
   height:210px;
   object-fit:cover;
+}
+.brand-hit__img--popcorn{
+  object-fit:contain;
+  object-position:center center;
+  background:#efe2d2;
+}
+.brand-hit__img--poutine{
+  object-fit:contain;
+  object-position:center center;
+  background:#261a12;
 }
 .brand-hit .halal-sign{
   margin:10px 16px 0;
@@ -3097,6 +3129,15 @@ body.page-halal .float-order__flame{background:var(--red)}
   min-height:250px;
   background:#1d1410;
   box-shadow:0 16px 40px rgba(0,0,0,.16);
+}
+.halal-hero__logo{
+  display:block;
+  width:clamp(62px, 9vw, 90px);
+  height:auto;
+  margin:0 0 10px;
+  opacity:.88;
+  filter:drop-shadow(0 8px 16px rgba(0,0,0,.16));
+  pointer-events:none;
 }
 .halal-hero__mediaFrame::after{
   content:"";

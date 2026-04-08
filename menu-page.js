@@ -31,13 +31,14 @@
 
   function renderTags(tags) {
     if (!tags || !tags.length) return "";
+    var visibleTags = tags.filter(function (t) {
+      return t !== "halal";
+    });
+    if (!visibleTags.length) return "";
     return (
       '<div class="mz-item__pills">' +
-      tags
+      visibleTags
         .map(function (t) {
-          if (t === "halal") {
-            return '<a class="mz-pill mz-pill--halal" href="halal.html">' + esc(tagLabel(t)) + "</a>";
-          }
           return '<span class="mz-pill mz-pill--' + esc(t) + '">' + esc(tagLabel(t)) + "</span>";
         })
         .join("") +
@@ -48,6 +49,13 @@
   function itemIsFeatured(item) {
     if (!item.tags) return false;
     return item.tags.indexOf("bestseller") >= 0 || item.tags.indexOf("popular") >= 0;
+  }
+
+  function housePickImageClass(pick) {
+    if (!pick) return "mz-hitCard__img";
+    if (pick.name === "Popcorn Chicken") return "mz-hitCard__img mz-hitCard__img--popcorn";
+    if (pick.name === "Original Poutine") return "mz-hitCard__img mz-hitCard__img--poutine";
+    return "mz-hitCard__img";
   }
 
   function renderItem(item) {
@@ -134,9 +142,11 @@
             (p.image
               ? '<span class="mz-hitCard__media"><img src="' +
                 esc(p.image) +
+                '" class="' +
+                housePickImageClass(p) +
                 '" alt="' +
                 esc(p.alt || p.name) +
-                '" loading="lazy" /></span><span class="halal-sign">Certified Halal</span>'
+                '" loading="lazy" /></span>'
               : "") +
             (p.badge ? '<span class="mz-hitCard__badge">' + esc(p.badge) + "</span>" : "") +
             '<span class="mz-hitCard__name">' +
