@@ -23,7 +23,6 @@
   function tagLabel(tag) {
     if (tag === "bestseller") return "Best seller";
     if (tag === "combo") return "Combo";
-    if (tag === "halal") return "Certified Halal";
     if (tag === "popular") return "Popular";
     if (tag === "spicy") return "Spicy";
     return tag.charAt(0).toUpperCase() + tag.slice(1);
