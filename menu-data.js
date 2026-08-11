@@ -17,7 +17,7 @@ window.MIR_ZINGER_MENU = {
     { label: "Snacks & express", ids: ["zinger-express"] },
     { label: "South Asian", ids: ["indian-cuisine"] },
     { label: "Sides & poutines", ids: ["side-orders", "poutines"] },
-    { label: "Specials & more", ids: ["everyday-specials", "drinks", "catering", "saturday-specials"] },
+    { label: "Specials & more", ids: ["everyday-specials", "weekday-specials", "drinks", "catering", "saturday-specials"] },
   ],
   nav: [
     { id: "family-deals", label: "Family Deals" },
@@ -33,6 +33,7 @@ window.MIR_ZINGER_MENU = {
     { id: "indian-cuisine", label: "Indian Cuisine" },
     { id: "side-orders", label: "Side Orders" },
     { id: "everyday-specials", label: "Everyday Specials" },
+    { id: "weekday-specials", label: "Weekday Specials" },
     { id: "poutines", label: "Poutines" },
     { id: "drinks", label: "Drinks" },
     { id: "catering", label: "Catering" },
@@ -224,6 +225,26 @@ window.MIR_ZINGER_MENU = {
         { name: "Masala Kabab w/ Naan", price: "$9.99" },
         { name: "Masala Chickpea w/ Rice or Naan", price: "$8.99" },
         { name: "Pakora Curry w/ Rice", price: "$8.99" },
+      ],
+    },
+    {
+      id: "weekday-specials",
+      tier: "accent",
+      title: "Weekday Specials",
+      subtitle: "Limited-day board deals — while supplies last.",
+      items: [
+        {
+          name: "Burger and Fries",
+          price: "$6.99",
+          description: "Mon–Fri special.",
+          tags: ["popular"],
+        },
+        {
+          name: "10 pcs Chicken",
+          price: "$19.99",
+          description: "Mon–Tue special.",
+          tags: ["popular"],
+        },
       ],
     },
     {
